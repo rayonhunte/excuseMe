@@ -1,0 +1,15 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+
+.col {
+ @apply
+ justify-center items-center
+ text-center mx-2 p-2 border-2 border-white rounded-lg shadow-lg mb-4 lg:mb-0
+}
+
+label {
+    @apply
+    uppercase font-semibold text-lg
+}
