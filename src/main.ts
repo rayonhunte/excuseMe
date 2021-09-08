@@ -41,10 +41,10 @@ $(document).ready(function () {
     { id: 9, name: "posted my nudes on Instagram." },
   ]
   // get selects
-  let intro: any = $("#intro")
-  let goat: any = $("#goat")
-  let delay: any = $("#delay")
-  let excuseString: any = $("#excuse")
+  // let intro: any = $("#intro")
+  // let goat: any = $("#goat")
+  // let delay: any = $("#delay")
+  // let excuseString: any = $("#excuse")
 
   introList.forEach(item => {
     $('#intro').append('<option value="' + item.id + '">' + item.name + '</option>');
@@ -63,7 +63,7 @@ $(document).ready(function () {
   console.log(excuse)
   $('#excuse').append(excuse)
 
-  function handeEvent(event: any) {
+  function handeEvent() {
     excuse = $('#intro :selected').text() + " " + $('#goat :selected').text() + " " + $('#delay :selected').text()
     $('#excuse').empty()
     $('#excuse').append(excuse)
