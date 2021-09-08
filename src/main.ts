@@ -2,6 +2,9 @@
 import "./style.css"
 import "tailwindcss/tailwind.css"
 
+$(document).ready(function () {
+
+})
 
 const introList = [
   { id: 0, name: "Sorry I can't come" },
