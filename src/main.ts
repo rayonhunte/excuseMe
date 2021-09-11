@@ -1,9 +1,12 @@
 // main.ts
 import "./style.css"
 import "tailwindcss/tailwind.css"
+import { getIntro } from "./intro"
 
 $(document).ready(function () {
   // start
+
+  console.log(getIntro())
   const introList = [
     { id: 0, name: "Sorry I can't come" },
     { id: 1, name: "Please forgive my absence" },
@@ -41,36 +44,37 @@ $(document).ready(function () {
     { id: 9, name: "posted my nudes on Instagram." },
   ]
   // get selects
-  // let intro: any = $("#intro")
-  // let goat: any = $("#goat")
-  // let delay: any = $("#delay")
-  // let excuseString: any = $("#excuse")
+  let intro: any = $("#intro")
+  let goat: any = $("#goat")
+  let delay: any = $("#delay")
+  let excuse: any = $("#excuse")
+  let excuseString: string
 
   introList.forEach(item => {
-    $('#intro').append('<option value="' + item.id + '">' + item.name + '</option>');
+    intro.append('<option value="' + item.id + '">' + item.name + '</option>');
   })
 
   goatList.forEach(item => {
-    $('#goat').append('<option value="' + item.id + '">' + item.name + '</option>');
+    goat.append('<option value="' + item.id + '">' + item.name + '</option>');
   })
 
   delayList.forEach(item => {
-    $('#delay').append('<option value="' + item.id + '">' + item.name + '</option>');
+    delay.append('<option value="' + item.id + '">' + item.name + '</option>');
   })
 
-  let excuse = $('#intro :selected').text() + " " + $('#goat :selected').text() + " " + $('#delay :selected').text()
+  excuseString = $('#intro :selected').text() + " " + $('#goat :selected').text() + " " + $('#delay :selected').text()
 
-  console.log(excuse)
-  $('#excuse').append(excuse)
+  console.log(excuseString)
+  excuse.append(excuseString)
 
   function handeEvent() {
-    excuse = $('#intro :selected').text() + " " + $('#goat :selected').text() + " " + $('#delay :selected').text()
-    $('#excuse').empty()
-    $('#excuse').append(excuse)
+    excuseString = $('#intro :selected').text() + " " + $('#goat :selected').text() + " " + $('#delay :selected').text()
+    excuse.empty()
+    excuse.append(excuseString)
   }
-  $("#intro").on("change", handeEvent)
-  $("#goat").on("change", handeEvent)
-  $("#delay").on("change", handeEvent)
+  intro.on("change", handeEvent)
+  goat.on("change", handeEvent)
+  delay.on("change", handeEvent)
   // end of start
 
   function getRamdomExcuse() {
@@ -82,8 +86,8 @@ $(document).ready(function () {
   }
 
   $('#roll').on('click', function () {
-    $('#excuse').empty()
-    $('#excuse').append(getRamdomExcuse())
+    excuse.empty()
+    excuse.append(getRamdomExcuse())
   })
 
 })

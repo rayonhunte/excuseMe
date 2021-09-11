@@ -1,0 +1,11 @@
+[
+    { "id": 0, "name": "Sorry I can't come" },
+    { "id": 1, "name": "Please forgive my absence" },
+    { "id": 2, "name": "Get this" },
+    { "id": 3, "name": "I can't go because" },
+    { "id": 4, "name": "I know you're going to hate me but" },
+    { "id": 5, "name": "I was minding my own business and boom!" },
+    { "id": 6, "name": "I feel terrible but" },
+    { "id": 7, "name": "I regretfully cannot attend" },
+    { "id": 8, "name": "This is going to sound like an excuse but" }
+  ]
