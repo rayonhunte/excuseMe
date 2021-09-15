@@ -26,7 +26,7 @@ export class ExcuseState implements NgxsOnInit {
 
     @Action(excuses.GetExcuses)
     getExcuses(ctx: StateContext<ExcuseStateModel>) {
-        return this.excuseService.getExcuses().pipe(
+        return this.excuseService.collectionOnce$().pipe(
             tap(
                 (excuse: any) => {
                     console.log(excuse);

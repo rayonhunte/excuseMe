@@ -8,7 +8,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { AddComponent } from './add/add.component';
 
 // firebase
-import { provideFirebaseApp, getApp, initializeApp } from '@angular/fire/app';
+import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 
 // firebase config
@@ -16,6 +16,7 @@ import { environment as env } from '../environments/environment';
 import { NgxsModule } from '@ngxs/store';
 import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
 import { ExcuseState } from './store/excuse.store';
+import { NgxsFirestoreModule } from '@ngxs-labs/firestore-plugin';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { ExcuseState } from './store/excuse.store';
     provideFirebaseApp(() => initializeApp(env.firebase)),
     provideFirestore(() => getFirestore()),
     NgxsModule.forRoot([ExcuseState], { developmentMode: !env.production }),
-    NgxsLoggerPluginModule.forRoot({ disabled: env.production })
+    NgxsLoggerPluginModule.forRoot({ disabled: env.production }),
+    NgxsFirestoreModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
