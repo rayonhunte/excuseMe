@@ -16,7 +16,7 @@ import { environment as env } from '../environments/environment';
 import { NgxsModule } from '@ngxs/store';
 import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
 import { ExcuseState } from './store/excuse.store';
-import { NgxsFirestoreModule } from '@ngxs-labs/firestore-plugin';
+// import { NgxsFirestoreModule } from '@ngxs-labs/firestore-plugin';
 
 @NgModule({
   declarations: [
@@ -32,7 +32,7 @@ import { NgxsFirestoreModule } from '@ngxs-labs/firestore-plugin';
     provideFirestore(() => getFirestore()),
     NgxsModule.forRoot([ExcuseState], { developmentMode: !env.production }),
     NgxsLoggerPluginModule.forRoot({ disabled: env.production }),
-    NgxsFirestoreModule.forRoot()
+    // NgxsFirestoreModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
