@@ -24,17 +24,17 @@ export class ExcuseState implements NgxsOnInit {
     }
 
 
-    @Action(excuses.GetExcuses)
-    getExcuses(ctx: StateContext<ExcuseStateModel>) {
-        return this.excuseService.collectionOnce$().pipe(
-            tap(
-                (excuse: any) => {
-                    console.log(excuse);
-                    ctx.patchState({
-                        excuses: excuse
-                    });
-                }
-            )
-        );
-    }
+    // @Action(excuses.GetExcuses)
+    // getExcuses(ctx: StateContext<ExcuseStateModel>) {
+    //     return this.excuseService.collectionOnce$().pipe(
+    //         tap(
+    //             (excuse: any) => {
+    //                 console.log(excuse);
+    //                 ctx.patchState({
+    //                     excuses: excuse
+    //                 });
+    //             }
+    //         )
+    //     );
+    // }
 }
