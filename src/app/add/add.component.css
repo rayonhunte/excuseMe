@@ -1,0 +1,21 @@
+input { 
+   @apply
+   w-full lg:w-3/4 mt-4 
+   outline-none placeholder-yellow-600
+   pl-3 rounded-xl
+}
+
+.head {
+    @apply
+    lg:w-1/2 w-full my-5 
+    font-mono text-xl text-white
+    p-4 lg:border-2 border-white
+    rounded-xl flex justify-center items-center
+
+}
+
+form {
+    @apply
+    lg:border-2 border-white
+    rounded-xl
+}

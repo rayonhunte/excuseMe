@@ -11,11 +11,12 @@ import { AddComponent } from './add/add.component';
 import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 
+
 // firebase config
 import { environment as env } from '../environments/environment';
-import { NgxsModule } from '@ngxs/store';
-import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
-import { ExcuseState } from './store/excuse.store';
+// import { NgxsModule } from '@ngxs/store';
+// import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
+// import { ExcuseState } from './store/excuse.store';
 // import { NgxsFirestoreModule } from '@ngxs-labs/firestore-plugin';
 
 @NgModule({
@@ -30,9 +31,6 @@ import { ExcuseState } from './store/excuse.store';
     AppRoutingModule,
     provideFirebaseApp(() => initializeApp(env.firebase)),
     provideFirestore(() => getFirestore()),
-    // NgxsModule.forRoot([ExcuseState], { developmentMode: !env.production }),
-    // NgxsLoggerPluginModule.forRoot({ disabled: env.production }),
-    // NgxsFirestoreModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,14 +1,20 @@
 <div class="lg:w-full">
-    <div class="mx-auto">
+    <div class="mx-auto" *ngIf="(excuses$ | async) as excuses">
         <div class="lg:grid lg:grid-cols-3 text-center">
             <div>
-                <select name="" id=""></select>
+                <select name="" id="">
+                    <option value="" *ngFor="let intro of excuses[0].intro">{{intro.text}}</option>
+                </select>
             </div>
             <div>
-                <select name="" id=""></select>
+                <select name="" id="">
+                    <option value="" *ngFor="let goat of excuses[0].goat">{{goat.text}}</option>
+                </select>
             </div>
             <div>
-                <select name="" id=""></select>
+                <select name="" id="">
+                    <option value="" *ngFor="let intro of excuses[0].intro">{{intro.text}}</option>
+                </select>
             </div>
         </div>
     </div>

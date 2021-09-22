@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { ExcusesService } from '../shared/excuses.service';
 
 @Component({
   selector: 'app-excuse',
@@ -7,7 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ExcuseComponent implements OnInit {
 
-  constructor() { }
+  excuses$: Observable<any> = this.excuseService.getExcuses()
+  intro: string = ''
+  goat: string = ''
+  delay: string = ''
+
+
+  constructor(private excuseService: ExcusesService) { }
 
   ngOnInit(): void {
   }

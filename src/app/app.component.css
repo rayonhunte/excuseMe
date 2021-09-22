@@ -1,0 +1,7 @@
+a {
+    @apply
+    p-2 text-lg font-semibold
+  text-white rounded-xl bg-yellow-700
+    my-3 lg:my-0 hover:text-yellow-300
+    block shadow-xl hover:scale-105 transform duration-300
+}
