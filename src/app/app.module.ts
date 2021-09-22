@@ -30,8 +30,8 @@ import { ExcuseState } from './store/excuse.store';
     AppRoutingModule,
     provideFirebaseApp(() => initializeApp(env.firebase)),
     provideFirestore(() => getFirestore()),
-    NgxsModule.forRoot([ExcuseState], { developmentMode: !env.production }),
-    NgxsLoggerPluginModule.forRoot({ disabled: env.production }),
+    // NgxsModule.forRoot([ExcuseState], { developmentMode: !env.production }),
+    // NgxsLoggerPluginModule.forRoot({ disabled: env.production }),
     // NgxsFirestoreModule.forRoot()
   ],
   providers: [],
