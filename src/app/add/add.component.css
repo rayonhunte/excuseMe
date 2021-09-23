@@ -19,3 +19,8 @@ form {
     lg:border-2 border-white
     rounded-xl
 }
+
+.invalid-input {
+    @apply
+    block
+}
