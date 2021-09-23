@@ -23,4 +23,7 @@ form {
 .invalid-input {
     @apply
     block
+    text-red-800
+    text-lg
+    font-mono
 }

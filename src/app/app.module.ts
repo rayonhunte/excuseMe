@@ -15,6 +15,7 @@ import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 // firebase config
 import { environment as env } from '../environments/environment';
 import { ReactiveFormsModule } from '@angular/forms';
+import { enableIndexedDbPersistence } from '@firebase/firestore';
 // import { NgxsModule } from '@ngxs/store';
 // import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
 // import { ExcuseState } from './store/excuse.store';
@@ -32,7 +33,11 @@ import { ReactiveFormsModule } from '@angular/forms';
     AppRoutingModule,
     ReactiveFormsModule,
     provideFirebaseApp(() => initializeApp(env.firebase)),
-    provideFirestore(() => getFirestore()),
+    provideFirestore(() => {
+      const firestore = getFirestore();
+      enableIndexedDbPersistence(firestore);
+      return firestore;
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]

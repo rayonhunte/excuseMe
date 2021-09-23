@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-add',
@@ -14,15 +14,15 @@ export class AddComponent implements OnInit {
 
   ngOnInit(): void {
     this.excuseForm = this.formBuilder.group({
-      intro: ['', Validators.required],
-      goat: ['', Validators.required],
-      delay: ['', Validators.required],
+      intro: new FormControl('', [Validators.required, Validators.minLength(7)]),
+      goat: new FormControl('', [Validators.required, Validators.minLength(7)]),
+      delay: new FormControl('', [Validators.required, Validators.minLength(7)])
     });
   }
 
 
   get intro(): any {
-    return console.log(this.excuseForm.get('intro'));
+    return this.excuseForm.get('intro');
   }
 
   get goat(): any {
@@ -33,6 +33,8 @@ export class AddComponent implements OnInit {
     return this.excuseForm.get('delay');
   }
 
-  onSubmit() { }
+  onSubmit() {
+    console.log(this.excuseForm.value);
+  }
 
 }
