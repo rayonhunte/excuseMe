@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { ExcusesService } from '../shared/excuses.service';
 
 @Component({
   selector: 'app-add',
@@ -10,7 +11,7 @@ export class AddComponent implements OnInit {
 
   excuseForm: FormGroup = this.formBuilder.group({})
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private excuseService: ExcusesService) { }
 
   ngOnInit(): void {
     this.excuseForm = this.formBuilder.group({
@@ -35,6 +36,7 @@ export class AddComponent implements OnInit {
 
   onSubmit() {
     console.log(this.excuseForm.value);
+    this.excuseService.addExcuse(this.excuseForm.value);
   }
 
 }

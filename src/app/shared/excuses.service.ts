@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Firestore, collectionData, collection, addDoc, getFirestore } from '@angular/fire/firestore';
-import { Observable, of } from 'rxjs';
+import { Firestore, collectionData, collection, doc, getFirestore, arrayUnion, updateDoc, setDoc } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
@@ -17,15 +17,18 @@ export class ExcusesService {
     return collectionData(collection(this.fireStore, 'excuses'))
   }
 
-  async addExcuse(excuse: {
-    excuse: {
-      intro: string,
-      goat: string,
-      delay: string,
-    }
-  }) {
+  async addExcuse(excuse: { intro: string, goat: string, delay: string }
+  ) {
     const db = getFirestore()
-    const docRef = await addDoc(collection(this.fireStore, 'excuses'), excuse)
+    await updateDoc(doc(db, 'excuses', 'intro'), {
+      intro: arrayUnion(excuse.intro)
+    })
+    await updateDoc(doc(db, 'excuses', 'goat'), {
+      goat: arrayUnion(excuse.goat)
+    })
+    await updateDoc(doc(db, 'excuses', 'delay'), {
+      delay: arrayUnion(excuse.delay)
+    })
   }
 
 }
